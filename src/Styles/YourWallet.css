@@ -1,0 +1,30 @@
+.wallet::after {
+    content:"";
+    margin-top:100px;
+    background-color: black;
+    opacity:0.5;
+    height:70vh;
+    border-radius: 10px;
+    width: auto;
+    position: absolute;
+    top:50px;
+    bottom:0;
+    left: 200px;
+    right: 200px;
+    z-index: -1;
+}
+
+.wallet {
+    margin-top:100px;
+    margin-inline: auto;
+    color: white;
+}
+
+.content {
+    text-align: center;
+    opacity: 120%;
+}
+
+.row {
+    padding: 40px;
+}

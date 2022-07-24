@@ -1,0 +1,17 @@
+html::after {
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.8;
+    z-index: -1;
+    position: absolute;
+    background-image: url(../images/background.jpg);
+    height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;  
+}

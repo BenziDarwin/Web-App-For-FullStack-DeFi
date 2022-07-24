@@ -1,0 +1,22 @@
+.header::after {
+    background-color: black;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 0.8;
+    z-index: -1;
+    position: absolute;
+    height: 4em;
+}
+
+.title {
+    color: rgb(188, 184, 184);
+}
+
+.btn {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+}
