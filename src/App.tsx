@@ -4,13 +4,19 @@ import Header from './Components/Header';
 import Main from './Components/Main';
 import "./Styles/App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { getDefaultProvider } from 'ethers';
 
 function App() {
   const config: Config = {
     networks:[Rinkeby ,Mainnet ,Kovan],
+    readOnlyChainId:Mainnet.chainId,
+    readOnlyUrls: {
+      [Kovan.chainId]:getDefaultProvider("kovan"),
+      [Rinkeby.chainId]:getDefaultProvider("rinkeby"),
+    },
     notifications:{
-      checkInterval:500,
-      expirationPeriod:50000,
+      checkInterval:1000,
+      expirationPeriod:1000,
     }
   }
   return (

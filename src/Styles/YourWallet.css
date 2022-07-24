@@ -1,13 +1,13 @@
 .wallet::after {
     content:"";
-    margin-top:100px;
+    margin-top:80px;
     background-color: black;
     opacity:0.5;
-    height:70vh;
+    height:130vh;
     border-radius: 10px;
     width: auto;
     position: absolute;
-    top:50px;
+    top:20px;
     bottom:0;
     left: 200px;
     right: 200px;
@@ -15,7 +15,6 @@
 }
 
 .wallet {
-    margin-top:100px;
     margin-inline: auto;
     color: white;
 }
@@ -26,5 +25,5 @@
 }
 
 .row {
-    padding: 40px;
+    padding: 20px;
 }

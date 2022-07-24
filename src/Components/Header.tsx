@@ -7,20 +7,17 @@ import helperConfig from "../helper-config.json";
 
 function Header() {
   var { activateBrowserWallet, deactivate, account,chainId} = useEthers()
- 
-    var network_name = account ? helperConfig[ChainId.Rinkeby].toUpperCase():null
-    console.log(network_name)
   return (
     <div className="header">
         {account ? (
 
-        <Button className="btn btn-danger d-none d-md-block" onClick={deactivate}>
+        <Button className="btn btn-danger" onClick={deactivate}>
         Deactivate
         </Button>
-    ): <Button className="btn btn-success d-none d-md-block" onClick={activateBrowserWallet}>
+    ): <Button className="btn btn-success" onClick={activateBrowserWallet}>
             Activate
         </Button>}
-        <h1 className="mt-2 title">Dapp Staking&nbsp;<span>{network_name}</span></h1>
+        <h1 className="mt-2 title">Dapp Staking</h1>
         </div>
   )
 }
