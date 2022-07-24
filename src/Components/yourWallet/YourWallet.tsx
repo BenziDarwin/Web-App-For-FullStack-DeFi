@@ -5,13 +5,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import {Row} from "react-bootstrap";
 import {TabContext, TabList, TabPanel} from "@material-ui/lab";
 import {Tab} from "@material-ui/core"
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import WalletBalance from "./WalletBalance";
-import {Button, Input} from "@material-ui/core";
+import {useNotifications} from "@usedapp/core";
 interface YourWalletProps{
     supportedTokens: Array<Token>
 }
 function YourWallet({supportedTokens}: YourWalletProps) {
+    const {notifications} = useNotifications();
     const [useTokenIndex,setTokenIndex] = useState<number>(0);
     const [useTokenIndex2,setTokenIndex2] = useState<number>(0);
     const [useAmount,setAmount] = useState<number|string|Array<string|number>>(0);
@@ -33,6 +34,16 @@ function YourWallet({supportedTokens}: YourWalletProps) {
         setAmount2(newAmount);
         console.log(newAmount)
     }
+    useEffect(() => {
+        if (notifications.filter(
+            (notification) => notification.type === "transactionSucceed" && notification.transactionName === "Approve erc20 transfer").length > 0) {
+                console.log("Approved!")
+            }
+        if (notifications.filter(
+                (notification) => notification.type === "transactionSucceed" && notification.transactionName === "Stake tokens").length > 0) {
+                console.log("Tokens Staked successfully")
+                
+        }},[notifications]);
 
     return(
         <>
@@ -62,7 +73,7 @@ function YourWallet({supportedTokens}: YourWalletProps) {
                     </TabContext>
                 </Row>
                 <hr style={{backgroundColor:"white",width:"auto"}}/>
-                <Row className="row">
+                <Row className="row d-none">
                     <h2 className="p-3"><u>Staked Tokens</u></h2>
                 <TabContext value={useTokenIndex2.toString()}>
                         <TabList onChange={handleChange2} aria-label="stake form tabs">
@@ -113,7 +124,7 @@ function YourWallet({supportedTokens}: YourWalletProps) {
                     </TabContext>
                 </Row>
                 <hr style={{backgroundColor:"white",width:"auto"}}/>
-                <Row className="row">
+                <Row className="row d-none">
                     <h2 className="p-3"><u>Staked Tokens</u></h2>
                 <TabContext value={useTokenIndex2.toString()}>
                         <TabList onChange={handleChange2} aria-label="stake form tabs">
